@@ -87,7 +87,7 @@ app.listen(8080)
 
 ##### 1) 미들웨어 체인 흐름
 
-![alt text](image-2.png)
+![alt text](image-1.png)
 
 ##### 2) 핵심 개념
 
