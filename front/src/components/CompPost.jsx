@@ -1,48 +1,63 @@
-import React from 'react'
-import { useEffect,useRef } from 'react';
-import { useState } from 'react'
+import React, { useRef, useState } from 'react';
 
 export default function CompPost() {
-    const nameRef=useRef(null);
-    const [data,setData]=useState('');//서버 넘어가는 데이터
-    const [name,setName]=useState('');//폼 입력
+    const nameRef = useRef(null);
+    const addressRef = useRef(null);
+    const initForm = {name:'', address:''};
+    const [form, setForm] = useState(initForm);
 
-    const handlePost= async ()=>{
-        const url='http://localhost:9000/api/post';
-                const response=await fetch(url,{
-                    method :'POST',
-                    headers:{'Content-type':'application/json'},
-                    body:JSON.stringify({name:name})
-                });
-                const jsonData=await response.json();
-                setData(jsonData.result);
+    const handleFormChange = (e) => {
+        const {name, value} = e.target;
+        setForm({...form, [name]:value});
     }
-    
-    const handleChange=()=>{
-        setName(nameRef.current.value);
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+
+        if(nameRef.current.value === '') {
+            alert('이름을 입력해주세요');
+            nameRef.current.focus();
+        } else if(addressRef.current.value === '') {
+            alert('주소를 입력해주세요');
+            addressRef.current.focus();
+        } else {
+            console.log('서버전송 --> ', form); 
+                       
+        }
     }
-    console.log(name)
-   /* useEffect(()=>{
-            const fetchData=async ()=>{
-                const url='http://localhost:9000/api/post';
-                const response=await fetch(url,{
-                    method :'POST',
-                    headers:{'Content-type':'application/json'},
-                    body:JSON.stringify({"name":"홍길동"})
-                });
-                const jsonData=await response.json();
-                setData(jsonData.result);
-            }
-            fetchData();
-        },[])*/
-        
 
-  return (
-    <div><input type="text" name="name" value={name} ref={nameRef} onChange={handleChange}/>
-        <button onClick={handlePost}>전송</button>
-        <h2>Post 방식으로 전송된 데이터:{data}</h2>
-        
-
-    </div>
-  )
+    return (
+        <div style={{width:"1000px", margin:"auto"}}>
+            <h1>Post :: 주소 등록 폼</h1>
+            <form onSubmit={handleFormSubmit}>
+                <ul>
+                    <li>
+                        <label htmlFor="name">이름</label>
+                        <input  type="text" 
+                                id="name" 
+                                name="name"
+                                ref={nameRef}
+                                value={form.name}
+                                onChange={handleFormChange}
+                                />
+                    </li>
+                    <li>
+                        <label htmlFor="address">주소</label>
+                        <input  type="text" 
+                                id="address" 
+                                name="address"
+                                ref={addressRef}
+                                value={form.address}
+                                onChange={handleFormChange}
+                                />
+                    </li>
+                    <li>
+                        <button type="submit">등록하기</button>
+                        <button type="button"
+                                onClick={()=>{setForm(initForm)}}>다시쓰기</button>                        
+                    </li>                    
+                </ul>
+            </form>
+        </div>
+    );
 }

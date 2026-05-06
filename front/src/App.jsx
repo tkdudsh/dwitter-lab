@@ -1,14 +1,25 @@
-import React from 'react'
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import heroImg from './assets/hero.png'
+import './App.css'
 import CompGet from './components/CompGet'
-import CompPost from './components/CompPost'
+import CompGetParam from './components/compGetParam'
+import CompLogin from './components/CompLogin'
 
-export default function App() {
+
+
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div>
-      <CompGet></CompGet>
+    <>
+    <CompGet></CompGet>
+    <CompGetParam/>
+    
 
-      <hr />
-      <CompPost></CompPost>
-    </div>
+    </>
   )
 }
+
+export default App

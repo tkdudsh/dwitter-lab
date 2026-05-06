@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start":"nodemon app"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +13,6 @@
   "type": "module",
   "dependencies": {
     "cors": "^2.8.6",
-    "course": "^0.0.1",
     "express": "^5.2.1",
     "nodemon": "^3.1.14"
   }
