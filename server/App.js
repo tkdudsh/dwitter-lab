@@ -64,11 +64,18 @@ app.get("/api/products/:pid", (req, res) => {
     res.json({"result": `${req.params.pid}의 상세정보`});
 });
 
-app.post("/api/post",(req,res)=>{
+app.post("/api/post", (req, res) => {
+    console.log('form data::', req.body.formData);
+    res.json({"result": true});
+});
+
+
+
+
+app.post("/api/login",(req,res)=>{
     console.log(req.body);
+    res.json({result:"전송 성공"});
 })
-
-
 //5. 서버 시작
 app.listen(PORT, () => {
     console.log(`서버 실행 ==>> ${PORT}`);

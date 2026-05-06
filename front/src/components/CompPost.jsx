@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { postFetchData } from '../util/fetchDatas.js';
 
 export default function CompPost() {
     const nameRef = useRef(null);
@@ -11,7 +12,7 @@ export default function CompPost() {
         setForm({...form, [name]:value});
     }
 
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async(e) => {
         e.preventDefault();
 
         if(nameRef.current.value === '') {
@@ -20,9 +21,10 @@ export default function CompPost() {
         } else if(addressRef.current.value === '') {
             alert('주소를 입력해주세요');
             addressRef.current.focus();
-        } else {
-            console.log('서버전송 --> ', form); 
-                       
+        } else {            
+            const jsonData = await postFetchData('/api/post', form);
+            console.log('result ->', jsonData.result);
+            jsonData.result? alert('등록 성공⭕!!') : alert('등록 실패❌!!');            
         }
     }
 

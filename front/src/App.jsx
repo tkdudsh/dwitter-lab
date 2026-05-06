@@ -6,6 +6,8 @@ import './App.css'
 import CompGet from './components/CompGet'
 import CompGetParam from './components/compGetParam'
 import CompLogin from './components/CompLogin'
+import CompPost from './components/CompPost'
+
 
 
 
@@ -15,7 +17,9 @@ function App() {
   return (
     <>
     <CompGet></CompGet>
+    <CompPost></CompPost>
     <CompGetParam/>
+    <CompLogin></CompLogin>
     
 
     </>
