@@ -1,8 +1,8 @@
-import * as repository from '../repository/footer.js'
+import db from '../db/connection.js';
 
+export const getFooter = async() => {
+    const sql = `select footer from portfolio`;
+    const [results] = await db.execute(sql, []);
 
-
-export const getFooter = (req,res,next)=>{
-    const footer = repository.getFooter();
-    res.json({"result":footer})
+    return await results[0].footer;
 }

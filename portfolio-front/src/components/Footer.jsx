@@ -13,8 +13,6 @@ export default function Footer() {
         }
         fetchData();
     }, []);
-
-    console.log(data);
     
     return (
         <footer id="contact" className="footer">

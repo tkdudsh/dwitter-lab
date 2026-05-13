@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { getFetchData } from '../../util/fetch.js';
 import AvatarImage from '../commons/AvatarImage.jsx';
 import Modal from './Modal.jsx';
 
@@ -8,13 +9,18 @@ export default function Projects({ projects }) {
         setSelectedProject(null);
     }
 
+    const handleProjectDetail = async(pid) => {
+        const jsonData = await getFetchData(`/content/work/project/${pid}`);   
+        setSelectedProject(jsonData.result);
+    }
+
     return (
         <>
             <ul className="projects">
                 {projects?.map((project, idx) => 
                     <li className="project" 
                         key={idx}
-                        onClick={()=> setSelectedProject(project)}>
+                        onClick={()=> handleProjectDetail(project.pid)}>
                         <AvatarImage    img={project.img}
                                         alt={project.alt}
                                         style="project-img" />
