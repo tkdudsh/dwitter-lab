@@ -1,0 +1,29 @@
+.feed {
+  max-width: 700px;
+  margin: 0 auto;
+  /* background: var(--white); */
+  background: var(--bg);
+  min-height: calc(100vh - var(--nav-h));
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.pageTitle {
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border-bottom: 1px solid var(--border);
+}
+
+.state {
+  padding: 40px 16px;
+  text-align: center;
+  color: var(--text-sub);
+  font-size: 15px;
+}
+.err {
+  padding: 16px;
+  text-align: center;
+  color: var(--red);
+  font-size: 14px;
+}

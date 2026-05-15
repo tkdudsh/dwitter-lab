@@ -1,0 +1,76 @@
+.nav {
+  /* border: 1px solid red; */
+  max-width: 700px;
+  margin: auto;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-h);
+  padding: 0 20px;
+  background: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+}
+
+.bird {
+  /* font-size: 22px; */
+  width: 40px;
+}
+.brand {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+}
+.badge {
+  font-size: 13px;
+  color: var(--text-sub);
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-sub);
+  border-radius: 20px;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.link:hover {
+  background: #e8f5fd;
+  color: var(--blue);
+}
+.active {
+  background: #e8f5fd;
+  color: var(--blue);
+}
+
+.logout {
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-sub);
+  border-radius: 20px;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.logout:hover {
+  background: #fde8ef;
+  color: var(--red);
+}

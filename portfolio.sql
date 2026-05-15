@@ -2,6 +2,8 @@ use hrdb2019;
 select database();
 show tables;
 
+-- drop table portfolio;
+
 create table portfolio(
 	id				int 	auto_increment primary key,
     header			json,
@@ -14,6 +16,12 @@ create table portfolio(
     create_at		datetime
 );
 select * from portfolio;
+select header from portfolio;
+
+
+select footer from portfolio;
+select home from portfolio;
+select work from portfolio;
 
 insert into portfolio(header, home, about, skills, `work`, testimonials, footer, create_at)
 	values(

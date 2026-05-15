@@ -1,0 +1,58 @@
+.card {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  transition: background .15s;
+}
+.card:hover { background: #fafcfd; }
+
+.avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: #fff;
+}
+
+.body { flex: 1; min-width: 0; }
+
+.header { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin-bottom: 4px; }
+.name   { font-weight: 700; font-size: 15px; }
+.handle, .dot, .time { font-size: 14px; color: var(--text-sub); }
+
+.content { font-size: 15px; line-height: 1.5; word-break: break-word; }
+
+/* 수정/삭제 버튼 */
+.actions { display: flex; flex-direction: column; gap: 4px; position: absolute; right: 12px; top: 12px; }
+.editBtn, .deleteBtn {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  font-size: 13px;
+  color: var(--text-sub);
+  transition: background .15s, color .15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.editBtn:hover   { background: #e8f5fd; color: var(--blue); }
+.deleteBtn:hover { background: #fde8ef; color: var(--red); }
+
+/* 편집 모드 */
+.editWrap   { margin-top: 4px; }
+.editInput  {
+  width: 100%; padding: 6px 10px;
+  border: 1px solid var(--blue); border-radius: 4px;
+  font-size: 14px; color: var(--text); outline: none;
+}
+.editBtns   { display: flex; gap: 8px; margin-top: 6px; }
+.saveBtn, .cancelBtn {
+  padding: 4px 14px; border-radius: 20px;
+  font-size: 13px; font-weight: 600; transition: background .15s;
+}
+.saveBtn               { background: var(--blue); color: #fff; }
+.saveBtn:hover:not(:disabled) { background: var(--blue-dark); }
+.saveBtn:disabled      { opacity: .6; cursor: not-allowed; }
+.cancelBtn             { background: var(--border); color: var(--text); }
+.cancelBtn:hover       { background: #ccd6dd; }
+.err { font-size: 12px; color: var(--red); margin-top: 4px; }

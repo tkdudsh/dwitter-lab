@@ -1,0 +1,58 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --blue: #1da1f2;
+  --blue-dark: #1991db;
+  --darkBlue: #073d5d;
+  --red: #e0245e;
+  --white: #ffffff;
+  --bg: #f5f8fa;
+  --border: #e1e8ed;
+  --text: #14171a;
+  --text-sub: #657786;
+  --nav-h: 53px;
+}
+
+body {
+  font-family:
+    "Noto Sans KR",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  /* background: var(--bg); */
+  background: var(--darkBlue);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+input,
+textarea {
+  font-family: inherit;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
